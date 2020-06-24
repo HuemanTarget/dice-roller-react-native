@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import PlayButton from "./components/PlayButton";
 
 export default function App() {
   const [uri, setUri] = useState(require("./src/images/dice1.png"));
@@ -65,13 +66,21 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={{flexDirection: 'row'}}>
+      <Text
+        style={{
+          fontSize: 50,
+          color: "white",
+          fontWeight: "bold",
+          marginBottom: 150,
+        }}
+      >
+        Dice Roller
+      </Text>
+      <View style={{ flexDirection: "row" }}>
         <Image style={styles.dice} source={uri} />
         <Image style={styles.dice} source={uriTwo} />
       </View>
-      <TouchableOpacity onPress={playButtonPressed}>
-        <Text style={styles.gamebutton}>Play Game</Text>
-      </TouchableOpacity>
+      <PlayButton />
     </View>
   );
 }
@@ -82,20 +91,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#E74292",
     alignItems: "center",
     justifyContent: "center",
+    height: 70,
   },
-  gamebutton: {
-    marginTop: 45,
-    fontSize: 20,
-    color: "white",
-    fontWeight: "bold",
-    borderWidth: 2,
-    paddingVertical: 8,
-    paddingHorizontal: 40,
-    borderRadius: 5,
-    borderColor: "white",
+  header: {
+    flex: 1,
+    backgroundColor: "#E74292",
+    alignItems: "center",
+    justifyContent: "center",
+    height: 30,
   },
   dice: {
     width: 200,
-    height: 200
+    height: 200,
   },
 });
